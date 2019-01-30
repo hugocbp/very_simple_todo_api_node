@@ -1,0 +1,47 @@
+{
+  "info": {
+    "name": "very_simple_todo_api_node.paw",
+    "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+    "version": "v0.0.0"
+  },
+  "item": [
+    {
+      "name": "/",
+      "item": [
+        {
+          "name": "index",
+          "request": {
+            "url": "http://localhost:5000/todo",
+            "method": "GET"
+          }
+        },
+        {
+          "name": "create",
+          "request": {
+            "url": "http://localhost:5000/todo",
+            "method": "POST"
+          }
+        }
+      ]
+    },
+    {
+      "name": "/1",
+      "item": [
+        {
+          "name": "show",
+          "request": {
+            "url": "http://localhost:5000/todo/1",
+            "method": "GET"
+          }
+        },
+        {
+          "name": "update",
+          "request": {
+            "url": "http://localhost:5000/todo/1",
+            "method": "PUT"
+          }
+        }
+      ]
+    }
+  ]
+}
