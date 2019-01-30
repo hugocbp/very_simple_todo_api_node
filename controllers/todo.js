@@ -29,3 +29,9 @@ exports.updateTodo = (req, res, next) => {
     description: "This text is faked changed"
   });
 };
+
+exports.deleteTodo = (req, res, next) => {
+  res.status(200).json({
+    message: "R.I.P Mock Todo 1..."
+  });
+};

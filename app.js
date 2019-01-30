@@ -15,8 +15,9 @@ app.use((req, res, next) => {
 });
 
 app.use("/todo", todoRoutes);
-// app.use("/", (req, res, next) => {
-//   res.status(200).json({ message: "Sorry, nothing here yet" });
-// });
+
+app.use("/", (req, res, next) => {
+  res.status(200).json({ message: "Sorry, nothing here yet" });
+});
 
 app.listen(5000);

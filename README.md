@@ -10,3 +10,9 @@ work as a quick cheatsheet for Node APIs.
 2. `npm install`
 3. `npm start`
 4. Make requests to `localhost:5000`
+
+## Testing
+
+Testing templates are provided for both Paw and Postman in the `test/` folder.
+Import the `*.paw` into Paw or the `*.json` file into Postman to test the
+endpoints implemented so far.

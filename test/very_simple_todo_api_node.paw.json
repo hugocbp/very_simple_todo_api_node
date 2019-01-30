@@ -9,6 +9,18 @@
       "name": "/",
       "item": [
         {
+          "name": "root",
+          "request": {
+            "url": "http://localhost:5000/",
+            "method": "GET"
+          }
+        }
+      ]
+    },
+    {
+      "name": "todo",
+      "item": [
+        {
           "name": "index",
           "request": {
             "url": "http://localhost:5000/todo",
@@ -25,7 +37,7 @@
       ]
     },
     {
-      "name": "/1",
+      "name": "todo/1",
       "item": [
         {
           "name": "show",
@@ -39,6 +51,13 @@
           "request": {
             "url": "http://localhost:5000/todo/1",
             "method": "PUT"
+          }
+        },
+        {
+          "name": "delete",
+          "request": {
+            "url": "http://localhost:5000/todo/1",
+            "method": "DELETE"
           }
         }
       ]
