@@ -10,4 +10,7 @@ router.get("/", todoController.getTodos);
 // POST /todo
 router.post("/", todoController.createTodo);
 
+// GET /todo/:id
+router.get("/1", todoController.getTodo);
+
 module.exports = router;
