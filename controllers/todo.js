@@ -45,7 +45,12 @@ exports.updateTodo = (req, res, next) => {
 };
 
 exports.deleteTodo = (req, res, next) => {
-  res.status(200).json({
-    message: "R.I.P Mock Todo 1..."
-  });
+  const todoId = req.params.todoId;
+
+  Todo.findById(todoId)
+    .then(todo => {
+      todo.remove();
+      res.status(200).json({ message: "Todo deleted" });
+    })
+    .catch(err => console.log(err));
 };
