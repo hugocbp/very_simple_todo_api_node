@@ -5,8 +5,15 @@ exports.getTodos = (req, res, next) => {
 };
 
 exports.createTodo = (req, res, next) => {
+  const todo = new Todo({
+    title: "First todo on database"
+  });
+
+  todo.save();
+
   res.status(201).json({
-    message: "I've faked created a Todo!"
+    message: "Todo created successfuly",
+    todo: todo
   });
 };
 
