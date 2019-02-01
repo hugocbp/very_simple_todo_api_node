@@ -11,10 +11,10 @@ router.get("/", todoController.getTodos);
 router.post("/", todoController.createTodo);
 
 // GET /todo/:id
-router.get("/1", todoController.getTodo);
+router.get("/:todoId", todoController.getTodo);
 
 // PUT /todo/:id
-router.put("/1", todoController.updateTodo);
+router.put("/:todoId", todoController.updateTodo);
 
 // DELETE /todo/:id
 router.delete("/1", todoController.deleteTodo);

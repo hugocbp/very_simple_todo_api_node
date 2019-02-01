@@ -1,5 +1,7 @@
 const express = require("express");
+const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
+
 const todoRoutes = require("./routes/todo");
 
 const app = express();
@@ -13,6 +15,7 @@ app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
   next();
 });
+app.use(bodyParser.json());
 
 app.use("/todo", todoRoutes);
 

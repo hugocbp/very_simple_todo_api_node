@@ -23,13 +23,13 @@ exports.createTodo = (req, res, next) => {
 };
 
 exports.getTodo = (req, res, next) => {
-  res.status(200).json({
-    id: 1,
-    title: "Mock Todo 1",
-    createdAt: Date.now(),
-    completed: false,
-    description: "Nothing much to add here for now"
-  });
+  const todoId = req.params.todoId;
+
+  Todo.findById(todoId)
+    .then(post => {
+      res.status(200).json({ post });
+    })
+    .catch(err => console.log(err));
 };
 
 exports.updateTodo = (req, res, next) => {
