@@ -1,7 +1,12 @@
 const Todo = require("../models/todo");
 
 exports.getTodos = (req, res, next) => {
-  res.status(200).json(Todo.getTodos);
+  Todo.find().then(todos => {
+    res.status(200).json({
+      todos: todos
+    });
+  });
+  // res.status(200).json(Todo.getTodos);
 };
 
 exports.createTodo = (req, res, next) => {
