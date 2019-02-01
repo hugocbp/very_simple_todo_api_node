@@ -26,20 +26,22 @@ exports.getTodo = (req, res, next) => {
   const todoId = req.params.todoId;
 
   Todo.findById(todoId)
-    .then(post => {
-      res.status(200).json({ post });
+    .then(todo => {
+      res.status(200).json({ todo });
     })
     .catch(err => console.log(err));
 };
 
 exports.updateTodo = (req, res, next) => {
-  res.status(201).json({
-    id: 1,
-    title: "Edited Mock Todo 1",
-    createdAt: Date.now(),
-    completed: false,
-    description: "This text is faked changed"
-  });
+  const todoId = req.params.todoId;
+
+  Todo.findById(todoId)
+    .then(todo => {
+      todo.title = req.body.title;
+      todo.save();
+      res.status(200).json({ message: "Todo updated", todo: todo });
+    })
+    .catch(err => console.log(err));
 };
 
 exports.deleteTodo = (req, res, next) => {
