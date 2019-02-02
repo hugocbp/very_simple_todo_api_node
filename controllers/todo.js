@@ -6,12 +6,11 @@ exports.getTodos = (req, res, next) => {
       todos: todos
     });
   });
-  // res.status(200).json(Todo.getTodos);
 };
 
 exports.createTodo = (req, res, next) => {
   const todo = new Todo({
-    title: "First todo on database"
+    title: req.body.title
   });
 
   todo.save();
