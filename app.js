@@ -19,12 +19,21 @@ app.use(bodyParser.json());
 
 app.use("/todo", todoRoutes);
 
+// TEMP
 app.use("/", (req, res, next) => {
   res.status(200).json({ message: "Sorry, nothing here yet" });
 });
 
+app.use((error, req, res, next) => {
+  const status = error.statusCode || 500;
+  const message = error.message;
+  const data = error.data;
+
+  res.status(status).json({ message: message, data: data });
+});
+
 mongoose
-  .connect("mongodb://localhost/simple_todo")
+  .connect("mongodb://localhost/simple_todo", { useNewUrlParser: true })
   .then(result => {
     app.listen(5000);
   })
