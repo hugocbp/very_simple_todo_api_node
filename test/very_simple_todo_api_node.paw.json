@@ -31,32 +31,57 @@
           "name": "create",
           "request": {
             "url": "http://localhost:5000/todo",
-            "method": "POST"
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"string\",\n  \"default\": \"{\\\"title\\\":\\\"Todo 5\\\"}\"\n}"
+            }
           }
         }
       ]
     },
     {
-      "name": "todo/1",
+      "name": "todo/5c5516a12b58ffd9ca96b0bb",
       "item": [
         {
           "name": "show",
           "request": {
-            "url": "http://localhost:5000/todo/1",
+            "url": "http://localhost:5000/todo/5c5516a12b58ffd9ca96b0bb",
             "method": "GET"
           }
         },
         {
           "name": "update",
           "request": {
-            "url": "http://localhost:5000/todo/1",
-            "method": "PUT"
+            "url": "http://localhost:5000/todo/5c5516a12b58ffd9ca96b0bb",
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"string\",\n  \"default\": \"{\\\"title\\\":\\\"Todo 55\\\"}\"\n}"
+            }
           }
-        },
+        }
+      ]
+    },
+    {
+      "name": "todo/5c53c44637491205238c971e",
+      "item": [
         {
           "name": "delete",
           "request": {
-            "url": "http://localhost:5000/todo/1",
+            "url": "http://localhost:5000/todo/5c53c44637491205238c971e",
             "method": "DELETE"
           }
         }
