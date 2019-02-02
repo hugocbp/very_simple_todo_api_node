@@ -9,7 +9,7 @@ const todoSchema = new Schema(
     },
     completed: {
       type: Boolean,
-      required: false
+      default: false
     }
   },
   { timestamps: true }
