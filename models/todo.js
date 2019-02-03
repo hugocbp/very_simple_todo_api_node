@@ -10,6 +10,11 @@ const todoSchema = new Schema(
     completed: {
       type: Boolean,
       default: false
+    },
+    creator: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+      required: true
     }
   },
   { timestamps: true }

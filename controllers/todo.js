@@ -1,9 +1,11 @@
 const { validationResult } = require("express-validator/check");
 
 const Todo = require("../models/todo");
+const User = require("../models/user");
 
 exports.getTodos = (req, res, next) => {
   Todo.find()
+    .where({ creator: req.userId })
     .then(todos => {
       res.status(200).json({
         todos: todos
@@ -24,18 +26,28 @@ exports.createTodo = (req, res, next) => {
     throw error;
   }
 
+  let creator;
+
   const todo = new Todo({
-    title: req.body.title
+    title: req.body.title,
+    creator: req.userId
   });
 
   todo
     .save()
-    .then(
+    .then(result => User.findById(req.userId))
+    .then(user => {
+      creator = user;
+      user.todos.push(todo);
+      return user.save();
+    })
+    .then(result => {
       res.status(201).json({
         message: "Todo created successfuly",
-        todo: todo
-      })
-    )
+        todo: todo,
+        creator: { _id: creator._id, name: creator.name }
+      });
+    })
     .catch(err => {
       if (!err.statusCode) err.statusCode = 500;
       next(err);
@@ -47,7 +59,7 @@ exports.getTodo = (req, res, next) => {
 
   Todo.findById(todoId)
     .then(todo => {
-      if (!todo) {
+      if (!todo || todo.creator._id != req.userId) {
         const error = new Error("Could not find todo");
         error.statusCode = 404;
         throw error;
@@ -74,7 +86,7 @@ exports.updateTodo = (req, res, next) => {
 
   Todo.findById(todoId)
     .then(todo => {
-      if (!todo) {
+      if (!todo || todo.creator._id != req.userId) {
         const error = new Error("Could not find todo");
         error.statusCode = 404;
         throw error;
@@ -99,7 +111,7 @@ exports.deleteTodo = (req, res, next) => {
 
   Todo.findById(todoId)
     .then(todo => {
-      if (!todo) {
+      if (!todo || todo.creator._id != req.userId) {
         const error = new Error("Could not find todo");
         error.statusCode = 404;
         throw error;

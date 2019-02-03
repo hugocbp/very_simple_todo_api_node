@@ -33,7 +33,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"type\": \"string\",\n  \"default\": \"{\\\"email\\\":\\\"test@test.com\\\",\\\"password\\\":\\\"12345678\\\"}\"\n}"
+              "raw": "{\n  \"type\": \"string\",\n  \"default\": \"{\\\"email\\\":\\\"test2@test.com\\\",\\\"password\\\":\\\"12345678\\\"}\"\n}"
             }
           }
         },
@@ -50,14 +50,14 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"type\": \"string\",\n  \"default\": \"{\\\"email\\\":\\\"test@test.com\\\",\\\"password\\\":\\\"12345678\\\",\\\"name\\\":\\\"John Doe\\\"}\"\n}"
+              "raw": "{\n  \"type\": \"string\",\n  \"default\": \"{\\\"email\\\":\\\"test2@test.com\\\",\\\"password\\\":\\\"12345678\\\",\\\"name\\\":\\\"Jane Doe\\\"}\"\n}"
             }
           }
         }
       ]
     },
     {
-      "name": "todo",
+      "name": "Todos",
       "item": [
         {
           "name": "index",
@@ -79,26 +79,31 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"type\": \"string\",\n  \"default\": \"{\\\"title\\\":\\\"Todo 5\\\"}\"\n}"
+              "raw": "{\n  \"type\": \"string\",\n  \"default\": \"{\\\"title\\\":\\\"Todo 1\\\"}\"\n}"
             }
           }
-        }
-      ]
-    },
-    {
-      "name": "todo/5c5516a12b58ffd9ca96b0bb",
-      "item": [
+        },
         {
           "name": "show",
           "request": {
-            "url": "http://localhost:5000/todo/5c5516a12b58ffd9ca96b0bb",
-            "method": "GET"
+            "url": "http://localhost:5000/todo/5c565731e91594790904232c",
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"string\",\n  \"default\": \"{}\"\n}"
+            }
           }
         },
         {
           "name": "update",
           "request": {
-            "url": "http://localhost:5000/todo/5c5516a12b58ffd9ca96b0bb",
+            "url": "http://localhost:5000/todo/5c565731e91594790904232c",
             "method": "PUT",
             "header": [
               {
@@ -108,19 +113,14 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"type\": \"string\",\n  \"default\": \"{\\\"title\\\":\\\"Todo 55\\\"}\"\n}"
+              "raw": "{\n  \"type\": \"string\",\n  \"default\": \"{\\\"title\\\":\\\"New Title\\\"}\"\n}"
             }
           }
-        }
-      ]
-    },
-    {
-      "name": "todo/5c53c44637491205238c971e",
-      "item": [
+        },
         {
           "name": "delete",
           "request": {
-            "url": "http://localhost:5000/todo/5c53c44637491205238c971e",
+            "url": "http://localhost:5000/todo/5c5653487893f37744436186",
             "method": "DELETE"
           }
         }

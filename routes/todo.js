@@ -2,16 +2,17 @@ const express = require("express");
 const { body } = require("express-validator/check");
 
 const todoController = require("../controllers/todo");
-const authController = require("../controllers/auth");
+const isAuth = require("../middleware/isAuth");
 
 const router = express.Router();
 
 // GET /todo
-router.get("/", todoController.getTodos);
+router.get("/", isAuth, todoController.getTodos);
 
 // POST /todo
 router.post(
   "/",
+  isAuth,
   [
     body("title")
       .trim()
@@ -21,11 +22,12 @@ router.post(
 );
 
 // GET /todo/:id
-router.get("/:todoId", todoController.getTodo);
+router.get("/:todoId", isAuth, todoController.getTodo);
 
 // PUT /todo/:id
 router.put(
   "/:todoId",
+  isAuth,
   [
     body("title")
       .trim()
@@ -35,6 +37,6 @@ router.put(
 );
 
 // DELETE /todo/:id
-router.delete("/:todoId", todoController.deleteTodo);
+router.delete("/:todoId", isAuth, todoController.deleteTodo);
 
 module.exports = router;
