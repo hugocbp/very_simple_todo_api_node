@@ -3,6 +3,7 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 
 const todoRoutes = require("./routes/todo");
+const authRoutes = require("./routes/auth");
 
 const app = express();
 
@@ -18,6 +19,7 @@ app.use((req, res, next) => {
 app.use(bodyParser.json());
 
 app.use("/todo", todoRoutes);
+app.use("/auth", authRoutes);
 
 // TEMP
 app.use("/", (req, res, next) => {
@@ -35,6 +37,7 @@ app.use((error, req, res, next) => {
 mongoose
   .connect("mongodb://localhost/simple_todo", { useNewUrlParser: true })
   .then(result => {
+    console.log("Starting server on port 5000");
     app.listen(5000);
   })
   .catch(error => console.log(error));

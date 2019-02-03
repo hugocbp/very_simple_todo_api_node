@@ -18,6 +18,45 @@
       ]
     },
     {
+      "name": "User",
+      "item": [
+        {
+          "name": "login",
+          "request": {
+            "url": "http://localhost:5000/auth/login",
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"string\",\n  \"default\": \"{\\\"email\\\":\\\"test@test.com\\\",\\\"password\\\":\\\"12345678\\\"}\"\n}"
+            }
+          }
+        },
+        {
+          "name": "signup",
+          "request": {
+            "url": "http://localhost:5000/auth/signup",
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"string\",\n  \"default\": \"{\\\"email\\\":\\\"test@test.com\\\",\\\"password\\\":\\\"12345678\\\",\\\"name\\\":\\\"John Doe\\\"}\"\n}"
+            }
+          }
+        }
+      ]
+    },
+    {
       "name": "todo",
       "item": [
         {
