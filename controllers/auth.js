@@ -66,8 +66,7 @@ exports.login = (req, res, next) => {
           email: loadedUser.email,
           userId: loadedUser._id.toString()
         },
-        // Replace this with ENV var for production
-        "D12OohrHDw5rGMOsBWFpaQ1KOhIcpqinb6RhT37T9A8=",
+        process.env.SECRET_KEY,
         { expiresIn: "2h" }
       );
 
